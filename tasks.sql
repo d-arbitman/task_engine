@@ -1,0 +1,22 @@
+CREATE TABLE `tasks` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `what` varchar(20) NOT NULL,
+  `target` varchar(50) NOT NULL,
+  `files` text,
+  `dateAdded` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `dueDate` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `text` text,
+  `subject` varchar(40) DEFAULT NULL,
+  `template` varchar(40) DEFAULT NULL,
+  `dateStarted` timestamp NULL DEFAULT NULL,
+  `dateCompleted` timestamp NULL DEFAULT NULL,
+  `deleted` enum('0','1') NOT NULL DEFAULT '0',
+  `type` varchar(20) NOT NULL,
+  `running` enum('0','1') NOT NULL DEFAULT '0',
+  `error` varchar(50) DEFAULT NULL,
+  `targetID` int(12) NOT NULL,
+  `test` enum('0','1') NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`),
+  KEY `id_2` (`id`,`what`,`target`,`dueDate`,`dateStarted`,`dateCompleted`)
+)
